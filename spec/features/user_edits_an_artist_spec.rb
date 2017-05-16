@@ -28,4 +28,29 @@ RSpec.feature "User Edits an existing artist" do
     expect(page).to have_content "Bob Marley"
     expect(page).to have_css("img[src=\"http://www.villages-news.com/wp-content/uploads/2016/10/Bob-Marley.jpg\"]")
   end
+
+  context "the submitted data is invalid" do
+    scenario "they try to submit without artist name" do
+      visit "#{artist_path(artist)}"
+
+      click_on "Edit artist"
+
+      fill_in "artist_name", with: ''
+
+      click_on "Update Artist"
+
+      expect(page).to have_content "Name can't be blank"
+    end
+    scenario "they try to submit without artist image_path" do
+      visit "#{artist_path(artist)}"
+
+      click_on "Edit artist"
+
+      fill_in "artist_image_path", with: ''
+
+      click_on "Update Artist"
+
+      expect(page).to have_content "Image path can't be blank"
+    end
+  end
 end
