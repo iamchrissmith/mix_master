@@ -6,4 +6,6 @@
 %p
   = link_to "Edit artist", edit_artist_path(@artist)
 %p
+  = link_to "Delete artist", artist_path(@artist), method: :delete
+%p
   = link_to "All Artists", artists_path

@@ -5,7 +5,7 @@ RSpec.feature "User Edits an existing artist" do
     Artist.create(name: "Bob Marley", image_path: "http://cps-static.rovicorp.com/3/JPG_400/MI0003/146/MI0003146038.jpg")
   }
   scenario "they enter new name for an artist" do
-    visit "#{artist_path(artist)}"
+    visit artist_path(artist)
 
     click_on "Edit artist"
 
@@ -18,7 +18,7 @@ RSpec.feature "User Edits an existing artist" do
   end
 
   scenario "they enter new image for an artist" do
-    visit "#{artist_path(artist)}"
+    visit artist_path(artist)
 
     click_on "Edit artist"
 
@@ -31,7 +31,7 @@ RSpec.feature "User Edits an existing artist" do
 
   context "the submitted data is invalid" do
     scenario "they try to submit without artist name" do
-      visit "#{artist_path(artist)}"
+      visit artist_path(artist)
 
       click_on "Edit artist"
 
@@ -42,7 +42,7 @@ RSpec.feature "User Edits an existing artist" do
       expect(page).to have_content "Name can't be blank"
     end
     scenario "they try to submit without artist image_path" do
-      visit "#{artist_path(artist)}"
+      visit artist_path(artist)
 
       click_on "Edit artist"
 
