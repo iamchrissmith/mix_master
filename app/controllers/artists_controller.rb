@@ -1,5 +1,5 @@
 class ArtistsController < ApplicationController
-  before_action :set_artist, only: [:show]
+  before_action :set_artist, only: [:show, :edit, :update]
   def index
     @artists = Artist.all
   end
@@ -18,6 +18,12 @@ class ArtistsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+  end
+
+  def update
   end
 
   private
