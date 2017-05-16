@@ -9,7 +9,7 @@ RSpec.feature "User submits a new artist" do
     click_on "New artist"
     fill_in "artist_name", with: artist_name
     fill_in "artist_image_path", with: artist_image_path
-    click_on "Create Artists"
+    click_on "Create Artist"
 
     expect(page).to have_content artist_name
     expect(page).to have_css("img[src=\"#{artist_image_path}\"]")

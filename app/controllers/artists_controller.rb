@@ -1,9 +1,8 @@
 class ArtistsController < ApplicationController
   def index
-
   end
 
-  def create
+  def new
     @artist = Artist.new
   end
 end
