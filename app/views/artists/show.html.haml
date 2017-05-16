@@ -1,3 +1,6 @@
 %h1= @artist.name
 
 =image_tag(@artist.image_path)
+
+%p
+  = link_to "All Artists", artists_path
