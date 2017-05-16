@@ -26,6 +26,6 @@ RSpec.feature "User Edits an existing artist" do
     click_on "Update Artist"
 
     expect(page).to have_content "Bob Marley"
-    expect(page).to have_css("img[src=\http://www.villages-news.com/wp-content/uploads/2016/10/Bob-Marley.jpg\"]")
+    expect(page).to have_css("img[src=\"http://www.villages-news.com/wp-content/uploads/2016/10/Bob-Marley.jpg\"]")
   end
 end
