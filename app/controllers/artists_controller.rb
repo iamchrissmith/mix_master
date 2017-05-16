@@ -1,9 +1,10 @@
 class ArtistsController < ApplicationController
-  before_action :set_artist, only: [:new, :show]
+  before_action :set_artist, only: [:show]
   def index
   end
 
   def new
+    @artist = Artist.new
   end
 
   def show
@@ -17,7 +18,7 @@ class ArtistsController < ApplicationController
   private
 
    def set_artist
-     @artist = Artist.new
+     @artist = Artist.find(params[:id])
    end
 
    def artist_params
