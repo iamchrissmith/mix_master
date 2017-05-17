@@ -1,4 +1,10 @@
 = form_for [@artist, @song] do |f|
+  - if @song.errors.any?
+    %h2= "#{pluralize(@song.errors.count, "error")} + prohibited this record from being saved:"
+    %ul
+      - @song.errors.full_messages.each do |error|
+        %li= error
+
   %p
     = f.label :title
     = f.text_field :title
