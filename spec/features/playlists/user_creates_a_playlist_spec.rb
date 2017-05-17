@@ -14,7 +14,7 @@ RSpec.feature "User creates a new playlist" do
 
     fill_in "playlist_name", with: "My Playlist"
     songs_to_be_added.each do |song|
-      page.check(song.name)
+      page.check("song-#{song.id}")
     end
     click_on "Create Playlist"
 

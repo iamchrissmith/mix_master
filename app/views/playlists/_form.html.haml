@@ -1,0 +1,17 @@
+= form_for @playlist do |f|
+  - if @playlist.errors.any?
+    %h2= "#{pluralize(@playlist.errors.count, "error")} + prohibited this record from being saved:"
+    %ul
+      - @playlist.errors.full_messages.each do |error|
+        %li= error
+
+  %p
+    = f.label :name
+    = f.text_field :name
+  %ul
+    - @songs.each do |song|
+      %li
+        = check_box_tag(:song_ids, song.id, false, :name=> 'playlist[song_ids][]', id: "song-#{song.id}")
+        = song.title
+  %p
+    = f.submit
