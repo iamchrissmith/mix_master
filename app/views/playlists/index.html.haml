@@ -1,4 +1,8 @@
 %h1= "Playlists"
 
+%ul
+  - @playlists.each do |playlist|
+    %li= link_to playlist.name, playlist
+
 %p
   = link_to "New playlist", new_playlist_path
