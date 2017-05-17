@@ -13,6 +13,6 @@ RSpec.feature "User submits a new song" do
     click_on "Create Song"
 
     expect(page).to have_content song_title
-    expect(page).to have_link artist.name, href: artists_path(artist)
+    expect(page).to have_link artist.name, href: artist_path(artist)
   end
 end
