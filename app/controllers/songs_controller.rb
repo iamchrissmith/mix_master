@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  before_action :set_song, only: [:show]
+  before_action :set_song, only: [:show, :edit, :update]
   def new
     @artist = Artist.find(params[:artist_id])
     @song = @artist.songs.new
@@ -16,7 +16,17 @@ class SongsController < ApplicationController
   end
 
   def show
-    #code
+  end
+
+  def edit
+  end
+
+  def update
+    if @song.update(song_params)
+      redirect_to @song
+    else
+      render :edit
+    end
   end
 
   private
