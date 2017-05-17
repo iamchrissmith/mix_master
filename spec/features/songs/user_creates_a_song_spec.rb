@@ -14,6 +14,5 @@ RSpec.feature "User submits a new song" do
 
     expect(page).to have_content song_title
     expect(page).to have_link artist.name, href: artists_path(artist)
-    expect(page).to have_current_path("/songs/1")
   end
 end

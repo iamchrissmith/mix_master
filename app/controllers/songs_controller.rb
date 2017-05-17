@@ -1,11 +1,13 @@
 class SongsController < ApplicationController
   before_action :set_song, only: [:show]
   def new
-    @song = Song.new
+    @artist = Artist.find(params[:artist_id])
+    @song = @artist.songs.new
   end
 
   def create
-    @song = Song.create(song_params)
+    @artist = Artist.find(params[:artist_id])
+    @song = @artist.songs.create(song_params)
     if @song.save
       redirect_to @song
     else
