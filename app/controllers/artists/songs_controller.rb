@@ -1,5 +1,5 @@
 class Artists::SongsController < ApplicationController
-  before_action :set_artist, only: [:new, :create, :index]
+  before_action :set_artist, only: [:new, :create, :index, :destroy]
   def new
     @song = @artist.songs.new
   end
@@ -15,6 +15,11 @@ class Artists::SongsController < ApplicationController
 
   def index
     @songs = @artist.songs.order(:title)
+  end
+
+  def destroy
+    @artist.songs.find(params[:id]).destroy
+    redirect_to artist_songs_path
   end
 
   private
