@@ -1,5 +1,7 @@
 %h1= @playlist.name
 
+%p= link_to "Edit", edit_playlist_path(@playlist)
+
 - if ! @playlist.songs.empty?
   %ul
     - @playlist.songs.each do |song|

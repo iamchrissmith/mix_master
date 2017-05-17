@@ -11,7 +11,7 @@
   %ul
     - @songs.each do |song|
       %li
-        = check_box_tag(:song_ids, song.id, false, :name=> 'playlist[song_ids][]', id: "song-#{song.id}")
+        = check_box_tag(:song_ids, song.id, @playlist.selected?(song), :name=> 'playlist[song_ids][]', id: "song-#{song.id}")
         = song.title
   %p
     = f.submit
