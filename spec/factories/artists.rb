@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  sequence(:name) { |n| "Bob Marley #{n}" }
+  sequence(:name) { |n| "#{n} Artist" }
 
   factory :artist do
     name

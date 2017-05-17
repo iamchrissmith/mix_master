@@ -1,4 +1,6 @@
-%h1= "All Songs for #{@artist.name}"
+%h1
+  = "All Songs for "
+  = link_to @artist.name, @artist
 
 %ul
   - @songs.each do |song|

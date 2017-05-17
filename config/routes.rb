@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   end
 
   resources :songs, only: [:index, :show, :edit, :update, :destroy]
+
+  resources :playlists, only: [:index]
 end
