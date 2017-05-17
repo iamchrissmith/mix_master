@@ -20,8 +20,8 @@ RSpec.feature "User creates a new playlist" do
 
     expect(page).to have_content "My Playlist"
     songs_to_be_added.each do |song|
-      expect(page).to have_link song.name, href: song_path(song)
+      expect(page).to have_link song.title, href: song_path(song)
     end
-    expect(page).not_to have_content Song.all[3].name
+    expect(page).not_to have_content Song.all[3].title
   end
 end

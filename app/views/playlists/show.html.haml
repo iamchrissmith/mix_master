@@ -1,0 +1,6 @@
+%h1= @playlist.name
+
+- if ! @playlist.songs.empty?
+  %ul
+    - @playlist.songs.each do |song|
+      %li= link_to song.title, song

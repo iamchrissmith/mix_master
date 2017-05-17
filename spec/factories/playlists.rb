@@ -1,5 +1,7 @@
 FactoryGirl.define do
+  sequence(:playlist_name) { |n| "#{n} Playlist" }
+
   factory :playlist do
-    name "MyString"
+    name {generate(:playlist_name)}
   end
 end

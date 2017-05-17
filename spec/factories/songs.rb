@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  sequence :title, ["A", "C", "B"].cycle do |n|
+  sequence :title do |n|
     "#{n} Title"
   end
 
