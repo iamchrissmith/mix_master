@@ -14,7 +14,7 @@ class Artists::SongsController < ApplicationController
   end
 
   def index
-    @songs = @artist.songs
+    @songs = @artist.songs.order(:title)
   end
 
   private

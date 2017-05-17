@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 RSpec.feature "User views all songs" do
-  context "they view songs index without an artist id" do
+  context "when they view All Songs from artist page" do
     let!(:artist) { create(:artist)}
     let!(:song_1) { create(:song, artist: artist) }
     let!(:song_2) { create(:song, artist: artist) }
 
-    scenario "they can see all the songs" do
+    scenario "they can see all of that Artist's songs" do
       visit artist_path(artist)
       click_on "View All Songs"
 
