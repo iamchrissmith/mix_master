@@ -21,8 +21,5 @@ RSpec.feature "User edits a playlist" do
     expect(page).to have_content new_name
     expect(page).to have_content unselected_song.title
     expect(page).not_to have_content to_be_unselected.title
-
-    save_and_open_page
-
   end
 end
