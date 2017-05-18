@@ -7,7 +7,8 @@ git_source(:github) do |repo_name|
 end
 
 gem "haml", "~> 5.0"
-# gem "haml-rails", "~> 0.9"
+gem 'omniauth-oauth2'
+gem "figaro"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.1'

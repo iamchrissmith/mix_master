@@ -7,4 +7,9 @@
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   %body
+    - if current_user
+      %h3= "Welcome, #{current_user.name}"
+      %p= link_to "Sign out", logout_path, method: :delete
+    - else
+      %p= link_to "Sign in with Spotify", "/auth/spotify"
     = yield
