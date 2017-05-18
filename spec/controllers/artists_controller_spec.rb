@@ -53,5 +53,66 @@ RSpec.describe ArtistsController, type: :controller do
         expect(response).to redirect_to(Artist.last)
       end
     end
+    context "with invalid params" do
+      it "assigns a newly create but unsaved artist as @artist" do
+        post :create, params: {artist: attributes_for(:artist, name: nil)}
+        expect(assigns(:artist)).to be_a_new(Artist)
+      end
+      it "re-renders the 'new' template" do
+        post :create, params: {artist: attributes_for(:artist, name: nil)}
+        expect(response).to render_template("new")
+      end
+    end
+  end
+
+  describe "PUT #update" do
+    context "with valid params" do
+      it "updates the requested artist" do
+        artist = create(:artist)
+        put :update, params: {id: artist.id, artist: attributes_for(:artist, name: "New name")}
+        artist.reload
+        expect(artist.name).to eq("New name")
+      end
+
+      it "assigns the requested artist as @artist" do
+        artist = create(:artist)
+        put :update, params: {id: artist.id, artist: attributes_for(:artist, name: "New name")}
+        expect(assigns(:artist)).to eq(artist)
+      end
+
+      it "redirects to the artist" do
+        artist = create(:artist)
+        put :update, params: {id: artist.id, artist: attributes_for(:artist, name: "New name")}
+        expect(response).to redirect_to(artist)
+      end
+    end
+    context "with invalid params" do
+      it "assigns the artist as @artist" do
+        artist = create(:artist)
+        put :update, params: {id: artist.id, artist: attributes_for(:artist, name: nil)}
+        expect(assigns(:artist)).to eq(artist)
+      end
+
+      it "re-renders the 'edit' template" do
+        artist = create(:artist)
+        put :update, params: {id: artist.id, artist: attributes_for(:artist, name: nil)}
+        expect(response).to render_template("edit")
+      end
+    end
+  end
+
+  describe "DELETE #destroy" do
+    it "destroys the requested artist" do
+      artist = create(:artist)
+      expect {
+        delete :destroy, params: {id: artist.id}
+      }.to change(Artist, :count).by(-1)
+    end
+
+    it "redirects to the artists list" do
+      artist = create(:artist)
+      delete :destroy, params: {id: artist.id}
+      expect(response).to redirect_to(artists_path)
+    end
   end
 end
